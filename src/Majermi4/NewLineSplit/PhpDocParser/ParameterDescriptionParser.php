@@ -29,6 +29,8 @@ class ParameterDescriptionParser
             return null;
         }
 
+        var_dump($constructorDocComment);
+
         $pregGrepResult = preg_grep('/@param\s+.+\s+\$'.$constructorParameter->name.'\s+(.*)(\s+)?(\*\/)?/', explode("\n", $constructorDocComment));
         if (!is_array($pregGrepResult) || count($pregGrepResult) === 0) {
             return null;
