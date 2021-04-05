@@ -1,0 +1,33 @@
+{
+    "name": "majermi4/new-line-split",
+    "description": "PHP utility that safely splits text containing new lines across various environments (Linux, Windows, Mac)",
+    "type": "library",
+    "require": {
+        "php": "^7.0|^8.0"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Majermi4\\NewLineSplit\\": "src/Majermi4/NewLineSplit/",
+            "Majermi4\\NewLineSplit\\Tests\\": "tests/Majermi4/NewLineSplit/Tests"
+        }
+    },
+    "authors": [
+        {
+            "name": "Michal Majer",
+            "email": "majermi4@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "phpstan/phpstan": "^0.12.81",
+        "phpunit/phpunit": "^9.5",
+        "friendsofphp/php-cs-fixer": "^2.18"
+    },
+    "scripts": {
+        "analyse" : "vendor/bin/phpstan analyse -c phpstan.neon",
+        "test" : "vendor/bin/phpunit -c phpunit.xml tests",
+        "test-coverage" : "vendor/bin/phpunit tests -c phpunit.xml --coverage-clover coverage.xml",
+        "cs-fix-src" : "./vendor/bin/php-cs-fixer fix src --rules=@Symfony,-yoda_style --allow-risky=yes",
+        "cs-fix-tests" : "./vendor/bin/php-cs-fixer fix tests --rules=@Symfony,-yoda_style --allow-risky=yes"
+    }
+}
