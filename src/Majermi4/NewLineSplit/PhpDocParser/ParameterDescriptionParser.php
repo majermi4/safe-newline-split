@@ -36,11 +36,17 @@ class ParameterDescriptionParser
             return null;
         }
 
+        var_dump($pregGrepResult);
+
+        $firstResult = reset($pregGrepResult);
+
         $outputArray = [];
-        $pregMatchSuccess = preg_match('/@param\s+.+\s+\$'.$constructorParameter->name.'\s+(.*)(\s+)?(\*\/)?/', reset($pregGrepResult), $outputArray);
+        $pregMatchSuccess = preg_match('/@param\s+.+\s+\$'.$constructorParameter->name.'\s+(.*)(\s+)?(\*\/)?/', $firstResult, $outputArray);
         if ((bool) $pregMatchSuccess !== true) {
             return null;
         }
+
+        var_dump($outputArray);
 
         return $outputArray[1];
     }
